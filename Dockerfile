@@ -15,7 +15,7 @@ COPY src /app/src
 RUN mvn clean package -DskipTests
 
 # Utiliser une image plus légère pour l'exécution
-FROM openjdk:17-jre-slim
+FROM openjdk:17-alpine
 
 # Copier le JAR compilé depuis l'image de build
 COPY --from=build /app/target/*.jar /app/my-app.jar
