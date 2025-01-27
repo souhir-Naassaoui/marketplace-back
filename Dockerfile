@@ -1,6 +1,9 @@
 # Utiliser l'image officielle de Java
 FROM openjdk:17-jdk-slim AS build
 
+# Installer Maven
+RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
+
 # Spécifier le répertoire de travail
 WORKDIR /app
 
